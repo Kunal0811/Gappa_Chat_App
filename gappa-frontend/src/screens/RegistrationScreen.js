@@ -7,22 +7,22 @@ import {
 export default function RegistrationScreen({ navigation }) {
   const [username, setUsername] = useState('');
   const [phone, setPhone] = useState('');
+  const [password, setPassword] = useState('');
   const [isGenerating, setIsGenerating] = useState(false);
 
   const handleRegister = async () => {
-    if (!username || !phone) {
-      alert('Please enter a username and phone number.');
+    if (!username || !phone || !password) {
+      alert('Please enter a username, phone number and password.');
       return;
     }
 
     setIsGenerating(true);
 
-    // Simulate Key Generation & API call
+    // TODO: replace with POST /auth/register once backend is wired
     setTimeout(() => {
       setIsGenerating(false);
-      // Once keys are generated and saved, navigate to the main app!
-      navigation.replace('ChatList'); 
-    }, 1500);
+      navigation.replace('Main');
+    }, 1200);
   };
 
   return (
@@ -54,6 +54,16 @@ export default function RegistrationScreen({ navigation }) {
             onChangeText={setPhone}
           />
 
+          <Text style={styles.label}>Password</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="Create a password"
+            placeholderTextColor="#666"
+            secureTextEntry
+            value={password}
+            onChangeText={setPassword}
+          />
+
           <TouchableOpacity
             style={[styles.button, isGenerating && styles.buttonDisabled]}
             onPress={handleRegister}
@@ -64,6 +74,10 @@ export default function RegistrationScreen({ navigation }) {
             ) : (
               <Text style={styles.buttonText}>Register securely</Text>
             )}
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+            <Text style={styles.link}>Already have an account? Log in</Text>
           </TouchableOpacity>
         </View>
       </ScrollView>
@@ -83,4 +97,5 @@ const styles = StyleSheet.create({
   button: { backgroundColor: '#00E676', borderRadius: 12, padding: 16, alignItems: 'center', marginTop: 8 },
   buttonDisabled: { backgroundColor: '#007A3E' },
   buttonText: { color: '#121212', fontSize: 16, fontWeight: 'bold' },
+  link: { color: '#00E676', textAlign: 'center', marginTop: 20, fontSize: 14 },
 });
