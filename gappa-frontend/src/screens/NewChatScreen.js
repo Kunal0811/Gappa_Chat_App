@@ -4,7 +4,7 @@ import {
 } from 'react-native';
 import Avatar from '../components/Avatar';
 import colors from '../theme/colors';
-import { mockContacts } from '../data/mockData';
+import { mockContacts } from '../data/MockData';
 
 export default function NewChatScreen({ navigation }) {
   const renderItem = ({ item }) => (

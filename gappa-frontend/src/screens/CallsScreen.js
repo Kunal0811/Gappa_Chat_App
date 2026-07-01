@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, FlatList, TouchableOpacity, StyleSheet, SafeAreaView } from 'react-native';
 import Avatar from '../components/Avatar';
 import colors from '../theme/colors';
-import { mockContacts } from '../data/mockData';
+import { mockContacts } from '../data/MockData';
 
 const mockCalls = mockContacts.slice(0, 3).map((c, i) => ({
   ...c,

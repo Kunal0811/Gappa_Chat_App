@@ -5,7 +5,7 @@ import {
 } from 'react-native';
 import Avatar from '../components/Avatar';
 import colors from '../theme/colors';
-import { mockMessages } from '../data/mockData';
+import { mockMessages } from '../data/MockData';
 
 export default function ChatScreen({ route, navigation }) {
   const { contactName, chatId, isGroup } = route.params;

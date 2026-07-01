@@ -5,7 +5,7 @@ import {
 } from 'react-native';
 import Avatar from '../components/Avatar';
 import colors from '../theme/colors';
-import { mockChats } from '../data/mockData';
+import { mockChats } from '../data/MockData';
 
 export default function ChatListScreen({ navigation }) {
   const [search, setSearch] = useState('');
